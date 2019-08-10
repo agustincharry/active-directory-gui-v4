@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  config: {
+    tenant: 'wpcorp21.onmicrosoft.com',
+    clientId: 'bdaef5b2-47f9-4f72-b492-2ab94e983588',
+    
+  }
 };
 
 /*
