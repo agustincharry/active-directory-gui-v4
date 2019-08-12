@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActiveDirectoryComponent } from './active-directory.component';
+import { AdalService, AdalGuard } from 'adal-angular4';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AdalService, AdalGuard, AdalInterceptor } from 'adal-angular4';
+import { AdalInterceptor, ActiveDirectoryComponent } from './'
 
 @NgModule({
   declarations: [
@@ -11,11 +11,9 @@ import { AdalService, AdalGuard, AdalInterceptor } from 'adal-angular4';
   imports: [
     CommonModule
   ],
-  providers: [ AdalService, AdalGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true },
-  ],
   exports: [
     ActiveDirectoryComponent
-  ]
+  ],
+  providers: [AdalService, AdalGuard, {provide: HTTP_INTERCEPTORS, useClass: AdalInterceptor, multi: true }],
 })
 export class ActiveDirectoryModule { }

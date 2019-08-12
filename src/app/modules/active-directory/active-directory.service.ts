@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AdalService } from 'adal-angular4';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,15 @@ export class ActiveDirectoryService {
 
   private ObservableIsLoadedModule = new Subject<Boolean>();
   constructor(private adalService: AdalService) { }
+
+  /**
+   * Used to load AdalModule
+   */
+  loadAdalModule() {
+    this.adalService.init(environment.config);
+    this.adalService.handleWindowCallback();
+    this.setIsloadedModule(true);
+  }
 
   /**
    * Used to set/launch the notification when AdalModule is correctly loaded

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestInSessionService } from './test-in-session.service'
 
 @Component({
   selector: 'app-test-in-session',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestInSessionComponent implements OnInit {
 
-  constructor() { }
+  private message:string;
+
+  constructor(private testInSessionService:TestInSessionService) { }
 
   ngOnInit() {
+  }
+
+  send() {
+    this.testInSessionService.send().subscribe((data:any) => {
+      this.message = data.message;
+    }, (err:any) => {
+      this.message = err.message;
+    })
   }
 
 }

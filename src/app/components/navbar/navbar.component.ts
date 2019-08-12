@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActiveDirectoryService } from '../../modules/active-directory/active-directory.service';
+import { ActiveDirectoryService } from '../../modules/active-directory';
 
 @Component({
   selector: 'app-navbar',

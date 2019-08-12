@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AdalService } from 'adal-angular4';
-import { environment } from '../../../environments/environment';
-import { ActiveDirectoryService } from './active-directory.service';
 
 @Component({
   selector: 'app-active-directory',
@@ -10,20 +8,10 @@ import { ActiveDirectoryService } from './active-directory.service';
 })
 export class ActiveDirectoryComponent implements OnInit {
 
-  constructor(private adalService: AdalService, private activeDirectoryService: ActiveDirectoryService) {
+  constructor(private adalService: AdalService) {
   }
 
   ngOnInit() {
-    this.loadAdalModule();
-  }
-
-  /**
-   * Used to load AdalModule
-   */
-  private loadAdalModule() {
-    this.adalService.init(environment.config);
-    this.adalService.handleWindowCallback();
-    this.activeDirectoryService.setIsloadedModule(true);
   }
 
   /**

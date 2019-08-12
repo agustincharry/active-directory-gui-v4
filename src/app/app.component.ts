@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActiveDirectoryService } from './modules/active-directory';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor() { }
+  constructor(private activeDirectoryService:ActiveDirectoryService) { }
   
   ngOnInit() {
+    this.activeDirectoryService.loadAdalModule();
   }
 
 }
