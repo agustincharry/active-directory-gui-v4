@@ -7,7 +7,9 @@ export const environment = {
   config: {
     tenant: 'wpcorp21.onmicrosoft.com',
     clientId: 'bdaef5b2-47f9-4f72-b492-2ab94e983588',
-    
+    endpoints: {
+      'http://localhost:4200/': 'bdaef5b2-47f9-4f72-b492-2ab94e983588'
+    }
   }
 };
 
